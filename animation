@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>animation </title>
+    <style>
+        .nav-bar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #2500d5;
+            font-family: Arial;
+        }
+
+        .nav-bar li {
+            float: left;
+        }
+
+        .nav-bar li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .nav-bar li a:hover:not(.active) {
+            background-color: rgba(255, 0, 34, 0.37);
+        }
+
+        .nav-bar .active {
+            background-color: #bc00d6;
+        }
+
+        body {
+            background-color: lavender;
+            font-family: Arial;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="nav-bar">
+    <li><a class="active" href="index.html">Home</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="word-guess.html">Word Guess Game</a></li>
+    <li><a href="invite.html">Invitation</a></li>
+    <li><a href="animation.html">Animation</a></li>
+</div>
+<h2><a href="https://www.khanacademy.org/computing/computer-programming/programming/animation-basics/p/challenge-
+exploding-sun">Challenge: Exploding Sun</a><script src="https://www.khanacademy.org/computer-programming/challenge-
+exploding-sun/2050946856/embed.js?editor=yes&buttons=yes&author=yes&embed=yes"></script><p>Made using:
+    <a href="http://www.khanacademy.org/computer-programming">Khan Academy Computer Science</a></p></h2>
+</body>
+</html>
