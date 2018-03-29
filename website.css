@@ -1,0 +1,103 @@
+/* nav bar css */
+.nav-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2500d5;
+    font-family: Arial;
+}
+
+.nav-bar li {
+    float: left;
+}
+
+.nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-bar li a:hover:not(.active) {
+    background-color: rgba(255, 0, 34, 0.37);
+}
+
+.nav-bar .active {
+    background-color: #bc00d6;
+}
+
+
+/*homepage css*/
+.good-stuff {
+    background-color: lavender;
+    font-family: Arial;
+}
+#about-h {
+    border:solid 7px #f503f2;
+    padding:2px;
+    margin-right:1200px;
+}
+
+#about-p {
+    border:solid 7px #f503f2;
+    padding:5px;
+    margin-right:800px
+}
+
+/*invitation css*/
+.invitation{
+    font-family:monospace;
+    background-color:rgb(250, 223, 242);
+}
+#your-invited {
+    text-align:center;
+    border: 21px double red;
+    margin-left:142px;
+    margin-right:155px;
+    padding:5px;
+}
+#tomato-pic {border:23px solid red;
+    position: relative;
+    left: 89px;
+}
+
+#important {
+    font-size:26px;
+    text-align:center;
+    border:2px dashed red;
+}
+
+/* blog css */
+.my-blog {background-color:rgb(229, 251, 255); font-family:monospace;
+}
+#blog-header {text-align:center; font-size:3.5em; background-color:rgb(255, 217, 255);}
+.heading-2 {background-color:rgb(255, 217, 255); text-align:center;}
+
+#fun-pic{position: relative;
+    right:-600px;}
+
+.date {text-align:center;}
+
+#delight {font-size:19px; line-height:19px; color:rgb(232, 189, 255);}
+#terrifying {font-size:19px; line-height:19px; color:rgb(186, 23, 23);}
+#scary {font-size:22px;line-height:17px; text-decoration:underline; color:rgb(186, 23, 23); font-style:em;}
+
+.post {font-size:15px;}
+
+#contents {font-size:20px;}
+
+
+.posts {text-align:center;}
+
+
+/*word guess css*/
+#guess_display {
+    text-align: center;
+    border: solid red 3px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 1000px;
+    margin-left: 100px;
+    padding: 10px;  }
