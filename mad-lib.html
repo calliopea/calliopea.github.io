@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Mad Libs</title>
+
+</head>
+
+<body>
+
+<h1>Mad Libs</h1>
+
+<form id="lib-form">
+    <label>
+        Body part you sneeze out of: <input type="text" id="noun1">
+    </label>
+    <br/>
+    <label>
+        Name: <input type="text" id="name1">
+    </label>
+    <br/>
+    <label>
+        Verb: <input type="text" id="verb1">
+    </label>
+    <br/>
+    <label>
+        Adjective: <input type="text" id="adjective1">
+    </label>
+    <br/>
+    <label>
+        Place: <input type="text" id="place1">
+    </label>
+    <br/>
+    <label>
+        Verb ending in 'ed': <input type="text" id="verb2">
+    </label>
+    <br/>
+    <button type="submit">Generate!</button>
+</form>
+
+<div id = "story"></div>
+<img id = "image1" src ="https://www.transparenttextures.com/patterns/asfalt-light.png" width="100">
+<img id = "image2" src ="https://www.transparenttextures.com/patterns/asfalt-light.png" width="100">
+<img id = "image3" src ="https://www.transparenttextures.com/patterns/asfalt-light.png" width="100">
+<img id = "image4" src ="https://www.transparenttextures.com/patterns/asfalt-light.png" width="100">
+  <script>
+    var libForm = document.getElementById("lib-form");
+    libForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var noun1Val = document.getElementById("noun1").value;
+        var verb1Val = document.getElementById("verb1").value;
+        var adjective1Val = document.getElementById("adjective1").value;
+        var place1Val = document.getElementById("place1").value;
+        var name1Val = document.getElementById("name1").value;
+        var verb2Val = document.getElementById("verb2").value;
+
+ 
+        var storyDiv = document.getElementById("story");
+        storyDiv.innerHTML = "The great big " + noun1Val + " named " + name1Val+ " went to the " + place1Val + " to "
+            + verb1Val + " in a " + adjective1Val + " manner. Then, " + name1Val +  " suddenly " + verb2Val + 
+          ". The end."; 
+       
+    if (noun1Val === "nose" || noun1Val ==="Nose"){
+      document.getElementById("image1").setAttribute("src", "https://img.clipartxtras.com/d49c68735b9c0c87fa0ba4ff79a454fa_nose-png-images-free-download-nose-clipart-transparent_512-512.png");
+    };
+    if (place1Val === "store" || place1Val=== "shop"){
+      document.getElementById("image2").setAttribute("src", "http://www.clker.com/cliparts/A/E/g/X/s/x/store-hi.png");
+    };
+    if (place1Val === "bowling alley"){
+      document.getElementById("image2").setAttribute("src", "http://www.clker.com/cliparts/7/w/P/Y/K/T/bowling-pins-md.png");
+    };
+    if (place1Val === "cafe"){
+      document.getElementById("image2").setAttribute("src", "https://vignette.wikia.nocookie.net/scribblenauts/images/c/cb/Coffee_Shop.png/revision/latest?cb=20130302153531");
+    };
+      if (verb1Val === "jump"){
+      document.getElementById("image3").setAttribute("src", "http://silhouettesfree.com/human/men/jumping-man-silhouette-image.png");
+    };
+      if (verb2Val === "jumped"){
+      document.getElementById("image4").setAttribute("src", "http://silhouettesfree.com/human/men/jumping-man-silhouette-image.png");
+    };
+      if (verb1Val === "run"){
+      document.getElementById("image3").setAttribute("src", "http://images.clipartpanda.com/run-clipart-run-clip-art.gif");
+    };
+      if (verb1Val === "walk"){
+      document.getElementById("image3").setAttribute("src", "http://images.clipartpanda.com/walk-clipart-walking-clipart-e1380249111426.png");
+    };
+      if (verb2Val === "walked"){
+      document.getElementById("image4").setAttribute("src", "http://images.clipartpanda.com/walk-clipart-walking-clipart-e1380249111426.png");
+    };
+    //document.getElementById("image4").setAttribute("src", "http://kathyskritters.com/tales/hadventure/images/the_end.gif");
+    
+    }); 
+  
+</script>
+</body>
+</html>
