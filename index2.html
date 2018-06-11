@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sound Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<h1>Sound Machine</h1>
+
+<p>
+    <button id ="button-a" onclick="redSquare()"></button>
+    <button id ="button-b" onclick="blueSquare()"></button>
+    <button id ="button-c" onclick="purpleSquare()"></button>
+    <button id ="button-d" onclick="greenSquare()"></button>
+    <button id ="button-e" onclick="orangeSquare()"></button>
+
+    <audio autoplay id = "red-sound" src="chime.mp3 "></audio>
+    <audio autoplay id = "blue-sound" src="thum.mp3"></audio>
+    <audio autoplay id = "purple-sound" src="firstboop.mp3"></audio>
+    <audio autoplay id = "green-sound" src= "hollowbonk.mp3"></audio>
+    <audio autoplay id = "orange-sound" src="kick.mp3"></audio>
+
+
+</p>
+
+
+    <script>
+        // Set up for canvas and compnent functions from W3 Schools, with some of my own additions
+
+        var myGamePiece1;
+        var myGamePiece2;
+        var myGamePiece3;
+        var myGamePiece4;
+        var myGamePiece5;
+        var redaudio = document.getElementById("red-sound");
+        var blueaudio = document.getElementById("blue-sound");
+        var purpleaudio = document.getElementById("purple-sound");
+        var greenaudio = document.getElementById("green-sound");
+        var orangeaudio = document.getElementById("orange-sound");
+
+
+        function redSquare() {
+            myGamePiece1 = new component1(50, 50, "white", 20, 0);
+        }
+
+        function blueSquare() {
+            myGamePiece2 = new component2(50, 50, "white", 320, 0);
+        }
+        function purpleSquare() {
+            myGamePiece3 = new component3(50, 50, "white", 625, 0);
+        }
+        function greenSquare() {
+            myGamePiece4 = new component4(50, 50, "white", 930, 0);
+        }
+        function orangeSquare() {
+            myGamePiece5 = new component5(50, 50, "white", 1235, 0);
+        }
+
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+                this.canvas.width = 1350;
+                this.canvas.height = 500;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+                this.interval = setInterval(updateGameArea,  50);
+                this.interval = setInterval(updateGameArea2, 50);
+                this.interval = setInterval(updateGameArea3, 50);
+                this.interval = setInterval(updateGameArea4, 50);
+                this.interval = setInterval(updateGameArea5, 50);
+
+            },
+            stop : function() {
+                clearInterval(this.interval);
+            },
+            clear : function() {
+                this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+            }
+        };
+        myGameArea.start();
+
+        function component1(width, height, color, x, y, type) {
+            this.type = type;
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.gravity = 0;
+            this.gravitySpeed = 4;
+            this.bounce =1;
+            this.update = function() {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            };
+            this.newPos = function() {
+                this.gravitySpeed += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY + this.gravitySpeed;
+                this.hitBottom();
+                this.hitTop();
+
+            };
+
+            this.hitBottom = function() {
+                var rockbottom = myGameArea.canvas.height - this.height;
+                if (this.y > rockbottom) {
+                    this.y = rockbottom;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    redaudio.play();
+                    color = "#0017ff";
+                }
+            };
+            this.hitTop = function() {
+                var tiptop = 0;
+                if (this.y < tiptop) {
+                    this.y = tiptop;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    redaudio.play();
+                    color = "#f400b3"
+
+                }
+            }
+        }
+
+        function component2(width, height, color, x, y, type) {
+            this.type = type;
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.gravity = 0;
+            this.gravitySpeed = 8;
+            this.bounce = 1;
+            this.update = function() {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            };
+            this.newPos = function() {
+                this.gravitySpeed += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY + this.gravitySpeed;
+                this.hitBottom();
+                this.hitTop();
+
+            };
+
+            this.hitBottom = function() {
+                var rockbottom = myGameArea.canvas.height - this.height;
+                if (this.y > rockbottom) {
+                    this.y = rockbottom;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    blueaudio.play();
+                    color = "#0017ff";
+
+                }
+            };
+            this.hitTop = function() {
+                var tiptop = 0;
+                if (this.y < tiptop) {
+                    this.y = tiptop;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    blueaudio.play();
+                    color = "#f400b3";
+                }
+            }
+        }
+        function component3(width, height, color, x, y, type) {
+            this.type = type;
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.gravity = 0;
+            this.gravitySpeed = 24;
+            this.bounce = 1;
+            this.update = function() {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            };
+            this.newPos = function() {
+                this.gravitySpeed += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY + this.gravitySpeed;
+                this.hitBottom();
+                this.hitTop();
+
+            };
+
+            this.hitBottom = function() {
+                var rockbottom = myGameArea.canvas.height - this.height;
+                if (this.y > rockbottom) {
+                    this.y = rockbottom;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    purpleaudio.play();
+                    color = "#0017ff";
+                }
+            };
+            this.hitTop = function() {
+                var tiptop = 0;
+                if (this.y < tiptop) {
+                    this.y = tiptop;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    purpleaudio.play();
+                    color = "#f400b3";
+                }
+            }
+        }
+        function component4(width, height, color, x, y, type) {
+            this.type = type;
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.gravity = 0;
+            this.gravitySpeed = 32;
+            this.bounce = 1;
+            this.update = function() {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            };
+            this.newPos = function() {
+                this.gravitySpeed += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY + this.gravitySpeed;
+                this.hitBottom();
+                this.hitTop();
+            };
+
+            this.hitBottom = function() {
+                var rockbottom = myGameArea.canvas.height - this.height;
+                if (this.y > rockbottom) {
+                    this.y = rockbottom;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    greenaudio.play();
+                    color = "#0017ff";
+                }
+            };
+            this.hitTop = function() {
+                var tiptop = 0;
+                if (this.y < tiptop) {
+                    this.y = tiptop;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    greenaudio.play();
+                    color = "#f400b3";
+                }
+            }
+        }
+        function component5(width, height, color, x, y, type) {
+            this.type = type;
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+            this.speedX = 0;
+            this.speedY = 0;
+            this.gravity = 0;
+            this.gravitySpeed = 48;
+            this.bounce = 1;
+            this.update = function() {
+                ctx = myGameArea.context;
+                ctx.fillStyle = color;
+                ctx.fillRect(this.x, this.y, this.width, this.height);
+            };
+            this.newPos = function() {
+                this.gravitySpeed += this.gravity;
+                this.x += this.speedX;
+                this.y += this.speedY + this.gravitySpeed;
+                this.hitBottom();
+                this.hitTop();
+            };
+
+            this.hitBottom = function() {
+                var rockbottom = myGameArea.canvas.height - this.height;
+                if (this.y > rockbottom) {
+                    this.y = rockbottom;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    orangeaudio.play();
+                    color = "#0017ff";
+                }
+            };
+            this.hitTop = function() {
+                var tiptop = 0;
+                if (this.y < tiptop) {
+                    this.y = tiptop;
+                    this.gravitySpeed = -(this.gravitySpeed * this.bounce);
+                    orangeaudio.play();
+                    color = "#f400b3";
+                }
+            }
+        }
+
+
+        function updateGameArea() {
+            myGameArea.clear();
+            if(myGamePiece1) {
+                myGamePiece1.newPos();
+                myGamePiece1.update();
+            }
+        }
+        function updateGameArea2() {
+            if (myGamePiece2){
+                myGamePiece2.newPos();
+                myGamePiece2.update();
+            }
+        }
+        function updateGameArea3() {
+            if (myGamePiece3) {
+                myGamePiece3.newPos();
+                myGamePiece3.update();
+            }
+        }
+        function updateGameArea4() {
+            if (myGamePiece4) {
+                myGamePiece4.newPos();
+                myGamePiece4.update();
+            }
+        }
+        function updateGameArea5() {
+            if (myGamePiece5) {
+                myGamePiece5.newPos();
+                myGamePiece5.update()
+            }
+        }
+
+    </script>
+
+    </body>
+</html>
